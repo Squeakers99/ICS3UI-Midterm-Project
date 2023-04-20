@@ -1,7 +1,7 @@
 /*
 Soheil Rajabali
 The Robotics Adventure
-V4.0
+V5.0
 */
 
 import arc.*;
@@ -13,26 +13,35 @@ public class MidtermProject{
 		//Initializes the Console
 		Console con = new Console("The Robotics Adventure", 1280, 720);
 		
-		//Defines and initializes the string variables
+		//Defines the string variables
 		String strChoice;
+		String strResult;
+		String strName;
+		String strAnswer;
+		
+		//Initializes the string variables
 		strChoice = "";
+		strAnswer = "";
+		
+		//Defines the character variables
+		char chrLetter;
 		
 		//Defines all the integer variables for the mouse
 		int intMouseX;
 		int intMouseY;
 		int intMouseButtonClicked;
 		
-		//Defines the variables for random number inputs
+		//Defines integer variable to use in questions
+		int intAnswer;
+		
+		//Defines the double variables for random number inputs
 		double dblRandomNumber1;
 		double dblRandomNumber2;
 		double dblAnswer;
 		double dblAnswerInput;
 		
-		//Defines string variable for the robot minigame
-		String strResult;
-		
-		//Defines variable for the binary question
-		int intAnswer;
+		//Defines the double variable for the tool selection screen
+		double dblSelection;
 		
 		//Initializes the variables for random number inputs
 		dblRandomNumber1 = 0.0;
@@ -156,6 +165,92 @@ public class MidtermProject{
 			
 			//Draws scene 12
 			scene12(con);
+		
+		//If the player chooses build, this code runs
+		}else if(strChoice.equals("Build")){
+			//Draws scene 13
+			scene13(con);
+			
+			//Gets the users name and gets the first letter
+			strName = con.readLine();
+			chrLetter = strName.charAt(0);
+			
+			//Clears the console for the next scene
+			con.clear();
+			
+			//If the first letter is A-M, this code runs
+			if(((chrLetter >= 'A') && (chrLetter <= 'M')) || ((chrLetter >= 'a') && (chrLetter <= 'm'))){
+				//Runs scene 14
+				scene14(con);
+				
+				//Gets the double input from the user
+				dblSelection = con.readDouble();
+				
+				//Clears the console for the next scene
+				con.clear();
+				
+				//If they answer wrong, this code runs
+				if(dblSelection != 3.2){
+					dissapointedFabroa(con);
+				}
+				
+			//If the first letter is anthing else, this code runs
+			}else{
+				//Draws Scene 16
+				scene16(con);
+				
+				//Gets the users answer
+				intAnswer = con.readInt();
+				
+				//Clears the console for the next scene
+				con.clear();
+				
+				//If their answer was wrong, this code runs
+				if(intAnswer != 3){
+					dissapointedFabroa(con);
+				}
+			}
+			
+			//If their answer was right, this code runs
+			impressedFabroa(con);
+			
+			//Gets the players choice
+			strChoice = scene18(con,intMouseX,intMouseY,intMouseButtonClicked);
+			
+			//Clears the console for the next scene
+			con.clear();
+			
+			//Delays the console for half a second
+			con.sleep(500);
+			
+			if(strChoice.equals("Grade 12")){
+				strAnswer = scene19(con,intMouseX,intMouseY,intMouseButtonClicked);
+				//Clears the console for the next scene
+				con.clear();
+				
+				//If they get it wrong, this code runs
+				if(!strAnswer.equals("Decreases")){
+					dissapointedFabroa(con);
+				}
+				
+				//This runs if they get it right
+				congratulationsBuild(con,19446);
+			}else{
+				strAnswer = scene20(con,intMouseX,intMouseY,intMouseButtonClicked);
+				//Clears the console for the next scene
+				con.clear();
+				
+				//If they get it wrong, this code runs
+				if(!strAnswer.equals("Increases")){
+					dissapointedFabroa(con);
+				}
+				
+				//This runs if they get it right
+				congratulationsBuild(con,19447);
+			}
+			
+		//If the player chooses communications, this code runs
+		}else{
 		}
 	}
 	
@@ -356,6 +451,62 @@ public class MidtermProject{
 		
 		//Closes the console
 		con.closeConsole();
+	}
+	
+	//Method for Scene 22/23 (Welcome to Robotics - Build)
+	public static void congratulationsBuild(Console con, int intTeam){
+		//Defines and loads the image for this scene
+		BufferedImage imgBackground;
+		imgBackground = con.loadImage("Congratulations - Build.png");
+		
+		//Loads the font to be used on the background
+		Font fntCongratulationsBuild;
+		fntCongratulationsBuild = con.loadFont("Congratulations Build Font.ttf",75);
+		
+		//Defines the variable to read the current key pressed down
+		char chrCurrentCharacter;
+		
+		//Defines variables to get the randomized RGB values
+		int intRed;
+		int intGreen;
+		int intBlue;
+		
+		//Initializes the character variable
+		chrCurrentCharacter = 'a';
+		
+		//Draws the background image
+		con.drawImage(imgBackground,0,200);
+		
+		//Sets the font
+		con.setDrawFont(fntCongratulationsBuild);
+		
+		while(chrCurrentCharacter != 's'){
+			//Gets the current character being pressed
+			chrCurrentCharacter = con.currentChar();
+			
+			//Randomizes the RGB
+			intRed = (int)(Math.random()*255);
+			intGreen = (int)(Math.random()*255);
+			intBlue = (int)(Math.random()*255);
+			
+			//Sets the draw color to the random color
+			con.setDrawColor(new Color(intRed,intGreen,intBlue));
+			
+			//Repaints the scene
+			con.repaint();
+			
+			//Draws the text
+			if(intTeam == 19446){
+				con.println("Congrats on joining team 19446!");
+				con.drawString("Congrats on joining 19446",200,200);
+			}else{
+				con.println("Congrats on joining team 19447!");
+				con.drawString("Congrats on joining 19447",200,200);
+			}
+			
+			//Pauses for half a second
+			con.sleep(500);
+		}
 	}
 	
 	//Method for Scene 1 (Do you want to join robotics)
@@ -565,5 +716,92 @@ public class MidtermProject{
 		con.drawImage(imgScene12,0,200);
 	}
 	
-	//
+	//Method for Scene 13 (Input for name)
+	public static void scene13(Console con){
+		//Defines and loads the images for this scene
+		BufferedImage imgScene13;
+		imgScene13 = con.loadImage("Scene 13.png");
+		
+		//Prints the instructions for this scene
+		con.print("Mr. Fabroa is asking you what your name is\n> ");
+		
+		//Draws the image for this scene
+		con.drawImage(imgScene13,0,200);
+	}
+	
+	//Method for Scene 14 (Select the wrench)
+	public static void scene14(Console con){
+		//Defines and loads the images for this scene
+		BufferedImage imgScene14;
+		imgScene14 = con.loadImage("Scene 14.png");
+		
+		//Prints the instructions for this scene
+		con.println("Mr. Fabroa wants you to find the wrench in this picture");
+		con.println("Enter the double that corresponds to the wrench in the form column.row");
+		con.println("Ex. Column 2, Row 1: 2.1");
+		con.print("> ");
+		
+		//Draws the image for this scene
+		con.drawImage(imgScene14,0,200);
+	}
+	
+	//Method for Scene 16 (Get the gear ratio)
+	public static void scene16(Console con){
+		BufferedImage imgScene16;
+		imgScene16 = con.loadImage("Scene 16.png");
+		con.println("You must enter the correct gear ratio to pass this test");
+		con.print("> ");
+		con.drawImage(imgScene16,0,200);
+	}
+	
+	//Method for Scene 18 (Pick a grade)
+	public static String scene18(Console con,int intMouseX,int intMouseY,int intMouseButtonClicked){
+		//Defines and initializes the choice variable
+		String strChoice;
+		strChoice = "";
+		
+		//Prints instructions for the player
+		con.println("Mr. Fabroa wants to know what grade you are in");
+		con.println("Select the grade you are in");
+		
+		//Gets the players choice
+		strChoice = choiceMenu(con,"Grade 9","Grade 10","Grade 12","Grade 11",35,intMouseX,intMouseY,intMouseButtonClicked);
+		
+		//Returns the players selected subcommittee
+		return strChoice;
+	}
+
+	//Method for Scene 19 (Torque increases, what happens to speed)
+	public static String scene19(Console con,int intMouseX,int intMouseY,int intMouseButtonClicked){
+		//Defines and initializes the answer variable
+		String strAnswer;
+		strAnswer = "";
+		
+		//Prints instructions for the player
+		con.println("For your final test, you must answer this question");
+		con.println("If torque increases, what happens to the speed");
+		
+		//Gets the players choice
+		strAnswer = choiceMenu(con,"Increases","Decreases","Same","n/a",35,intMouseX,intMouseY,intMouseButtonClicked);
+		
+		//Returns the players selected subcommittee
+		return strAnswer;
+	}
+	
+	//Method for Scene 20 (Torque decreases, what happens to speed)
+	public static String scene20(Console con,int intMouseX,int intMouseY,int intMouseButtonClicked){
+		//Defines and initializes the choice variable
+		String strAnswer;
+		strAnswer = "";
+		
+		//Prints instructions for the player
+		con.println("For your final test, you must answer this question");
+		con.println("If torque decreases, what happens to the speed");
+		
+		//Gets the players choice
+		strAnswer = choiceMenu(con,"Increases","Decreases","Same","n/a",35,intMouseX,intMouseY,intMouseButtonClicked);
+		
+		//Returns the players selected subcommittee
+		return strAnswer;
+	}
 }
