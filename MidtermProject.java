@@ -846,7 +846,7 @@ public class MidtermProject{
 		con.println("To test this, you must find Mr Fabroa in this crowd. Once you find him, click him. You have 3 chances");
 		
 		//Gives the player 3 chances to find Mr. Fabroa
-		for(intChances = 3;intChances > 0; intChances--){
+		for(intChances = 2;intChances >= 0; intChances--){
 			//Gets the mouse status at the beginning
 			intMouseButtonClicked = con.currentMouseButton();
 			
@@ -864,8 +864,11 @@ public class MidtermProject{
 				return true;
 			}
 			
-			//Prints a failed message if they missed with the chances left
-			con.println("You missed! You have "+intChances+" chances left.");
+			//Only prints a message if their chaces aren't 0
+			if(intChances != 0){
+				//Prints a failed message if they missed with the chances left
+				con.println("You missed! You have "+intChances+" chances left.");
+			}
 			
 			//Delays the console for half a second
 			con.sleep(500);
