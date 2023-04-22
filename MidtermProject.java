@@ -1,7 +1,7 @@
 /*
 Soheil Rajabali
 The Robotics Adventure
-V5.0
+V7.0
 */
 
 import arc.*;
@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.image.*;
 
 public class MidtermProject{
+	//Main method to run all the code
 	public static void main(String[] args){
 		//Initializes the Console
 		Console con = new Console("The Robotics Adventure", 1280, 720);
@@ -42,6 +43,9 @@ public class MidtermProject{
 		
 		//Defines the double variable for the tool selection screen
 		double dblSelection;
+		
+		//Defines the boolean variable for the wheres waldo scene to get the result
+		boolean boolResult;
 		
 		//Initializes the variables for random number inputs
 		dblRandomNumber1 = 0.0;
@@ -251,6 +255,19 @@ public class MidtermProject{
 			
 		//If the player chooses communications, this code runs
 		}else{
+			//Gets the result of scene 24 to see if the player clickes Mr. Fabroa
+			boolResult = scene24(con,intMouseX,intMouseY,intMouseButtonClicked);
+			
+			//Clears the console for the next scene
+			con.clear();
+			
+			//If they do not click Mr Fabora, this runs
+			if(!boolResult){
+				dissapointedFabroa(con);
+			}
+			
+			//If they click Mr Fabora, this code runs
+			scene26(con);
 		}
 	}
 	
@@ -453,7 +470,7 @@ public class MidtermProject{
 		con.closeConsole();
 	}
 	
-	//Method for Scene 22/23 (Welcome to Robotics - Build)
+	//Method for Scene 22/23 (Welcome to Robotics - Build branch)
 	public static void congratulationsBuild(Console con, int intTeam){
 		//Defines and loads the image for this scene
 		BufferedImage imgBackground;
@@ -480,6 +497,15 @@ public class MidtermProject{
 		//Sets the font
 		con.setDrawFont(fntCongratulationsBuild);
 		
+		//If statement to print the appropriate message
+		if(intTeam == 19446){
+			con.println("Congrats on joining team 19446! You are now a builder.");
+		}else{
+			con.println("Congrats on joining team 19447! You are now a builder.");
+		}
+		
+		con.println("Press s to stop the animation");
+		
 		while(chrCurrentCharacter != 's'){
 			//Gets the current character being pressed
 			chrCurrentCharacter = con.currentChar();
@@ -497,10 +523,8 @@ public class MidtermProject{
 			
 			//Draws the text
 			if(intTeam == 19446){
-				con.println("Congrats on joining team 19446!");
 				con.drawString("Congrats on joining 19446",200,200);
 			}else{
-				con.println("Congrats on joining team 19447!");
 				con.drawString("Congrats on joining 19447",200,200);
 			}
 			
@@ -803,5 +827,64 @@ public class MidtermProject{
 		
 		//Returns the players selected subcommittee
 		return strAnswer;
+	}
+	
+	//Method for Scene 24 (Wheres waldo but Mr Fabroa)
+	public static boolean scene24(Console con,int intMouseX,int intMouseY,int intMouseButtonClicked){
+		//Initializes the image for this scene
+		BufferedImage imgScene24;
+		imgScene24 = con.loadImage("Scene 24.png");
+		
+		//Defines the chances variable for this scene
+		int intChances;
+		
+		//Draws the background image
+		con.drawImage(imgScene24,0,200);
+		
+		//Prints the instructions for this scene
+		con.println("To be in communications, you must have an eye for detail");
+		con.println("To test this, you must find Mr Fabroa in this crowd. Once you find him, click him. You have 3 chances");
+		
+		//Gives the player 3 chances to find Mr. Fabroa
+		for(intChances = 3;intChances > 0; intChances--){
+			//Gets the mouse status at the beginning
+			intMouseButtonClicked = con.currentMouseButton();
+			
+			//Repeats until they click the mouse
+			while(intMouseButtonClicked != 1){
+				intMouseButtonClicked = con.currentMouseButton();
+			}
+			
+			//Gets the X and Y of the cursor
+			intMouseX = con.currentMouseX();
+			intMouseY = con.currentMouseY();
+			
+			//If it is on Mr. Fabroa, returns a true statement because they passed the challenge
+			if(((intMouseX >= 1146) && (intMouseX <= 1227)) && ((intMouseY >= 319) && (intMouseY <= 423))){
+				return true;
+			}
+			
+			//Prints a failed message if they missed with the chances left
+			con.println("You missed! You have "+intChances+" chances left.");
+			
+			//Delays the console for half a second
+			con.sleep(500);
+		}
+		
+		//Only runs when all 3 chances are finished
+		return false;
+	}
+	
+	//Method for Scene 26 (Welcome to robotics - Communications branch)
+	public static void scene26(Console con){
+		//Defines and loads the images for this scene
+		BufferedImage imgScene26;
+		imgScene26 = con.loadImage("Scene 26.png");
+		
+		//Prints a statement at the top of the screen
+		con.println("Congratulations! Welcome to robotics. You are now communications.");
+		
+		//Draws the scene image
+		con.drawImage(imgScene26,0,200);
 	}
 }
