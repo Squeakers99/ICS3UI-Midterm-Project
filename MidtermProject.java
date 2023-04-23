@@ -1,7 +1,7 @@
 /*
 Soheil Rajabali
 The Robotics Adventure
-V7.0
+V8.0
 */
 
 import arc.*;
@@ -276,8 +276,8 @@ public class MidtermProject{
 		//Defines and loads in the fonts
 		Font fntButtonFont;
 		Font fntRegularFont;
-		fntButtonFont = con.loadFont("Button Font.ttf", intFontSize);
-		fntRegularFont = con.loadFont("Regular Font.ttf", 14);
+		fntButtonFont = con.loadFont("Fonts/Button Font.ttf", intFontSize);
+		fntRegularFont = con.loadFont("Fonts/Regular Font.ttf", 14);
 		
 		//Draws the white background
 		con.setDrawColor(Color.white);
@@ -437,7 +437,7 @@ public class MidtermProject{
 	public static void impressedFabroa(Console con){
 		//Defines and loads the image for this scene
 		BufferedImage imgImpressedFabroa;
-		imgImpressedFabroa = con.loadImage("Impressed Fabroa.png");
+		imgImpressedFabroa = con.loadImage("Miscellaneous/Impressed Fabroa.png");
 		
 		//Draws the scene image
 		con.drawImage(imgImpressedFabroa,0,200);
@@ -455,7 +455,7 @@ public class MidtermProject{
 	//Method to draw dissapointed fabroa (Used for scenes 7,10,15,21,25)
 	public static void dissapointedFabroa(Console con){
 		BufferedImage imgDissapointedFabroa;
-		imgDissapointedFabroa = con.loadImage("Disappointed Fabroa.png");
+		imgDissapointedFabroa = con.loadImage("Miscellaneous/Disappointed Fabroa.png");
 		
 		//Draws a dissapointed Fabroa face
 		con.drawImage(imgDissapointedFabroa,0,200);
@@ -474,11 +474,11 @@ public class MidtermProject{
 	public static void congratulationsBuild(Console con, int intTeam){
 		//Defines and loads the image for this scene
 		BufferedImage imgBackground;
-		imgBackground = con.loadImage("Congratulations - Build.png");
+		imgBackground = con.loadImage("Miscellaneous/Congratulations - Build.png");
 		
 		//Loads the font to be used on the background
 		Font fntCongratulationsBuild;
-		fntCongratulationsBuild = con.loadFont("Congratulations Build Font.ttf",75);
+		fntCongratulationsBuild = con.loadFont("Fonts/Congratulations Build Font.ttf",75);
 		
 		//Defines the variable to read the current key pressed down
 		char chrCurrentCharacter;
@@ -537,7 +537,7 @@ public class MidtermProject{
 	public static void scene1(Console con){
 		//Defines and loads in the image for scene 1
 		BufferedImage imgScene1;
-		imgScene1 = con.loadImage("Scene 1.png");
+		imgScene1 = con.loadImage("Scenes/Scene 1.png");
 		
 		//Draws the rectangle for the input
 		con.setDrawColor(Color.black);
@@ -551,7 +551,7 @@ public class MidtermProject{
 	public static void scene2(Console con){
 		//Defines and loads in the image for scene 2
 		BufferedImage imgScene2;
-		imgScene2 = con.loadImage("Scene 2.png");
+		imgScene2 = con.loadImage("Scenes/Scene 2.png");
 		
 		//Draws the image and prints the statement
 		con.drawImage(imgScene2,0,200);
@@ -582,11 +582,11 @@ public class MidtermProject{
 	public static void scene4(Console con,double dblRandomNumber1,double dblRandomNumber2){
 		//Defines and loads the image for this scene
 		BufferedImage imgScene4;
-		imgScene4 = con.loadImage("Scene 4.png");
+		imgScene4 = con.loadImage("Scenes/Scene 4.png");
 		
 		//Defines and sets the font for the equation
 		Font fntEquationFont;
-		fntEquationFont = con.loadFont("Equation Font.ttf",100);
+		fntEquationFont = con.loadFont("Fonts/Equation Font.ttf",100);
 		
 		//Draws the scene image
 		con.drawImage(imgScene4,0,200);
@@ -604,11 +604,11 @@ public class MidtermProject{
 	public static void scene6(Console con,double dblRandomNumber1,double dblRandomNumber2){
 		//Defines and loads the image for this scene
 		BufferedImage imgScene6;
-		imgScene6 = con.loadImage("Scene 6.png");
+		imgScene6 = con.loadImage("Scenes/Scene 6.png");
 		
 		//Defines and sets the font for the equation
 		Font fntEquationFont;
-		fntEquationFont = con.loadFont("Equation Font.ttf",100);
+		fntEquationFont = con.loadFont("Fonts/Equation Font.ttf",100);
 		
 		//Draws the scene image
 		con.drawImage(imgScene6,0,200);
@@ -644,8 +644,8 @@ public class MidtermProject{
 		//Defines and loads the images for this scene
 		BufferedImage imgScene9;
 		BufferedImage imgRobot;
-		imgScene9 = con.loadImage("Scene 9.png");
-		imgRobot = con.loadImage("Robot.png");
+		imgScene9 = con.loadImage("Scenes/Scene 9.png");
+		imgRobot = con.loadImage("Miscellaneous/Robot.png");
 		
 		//Defines the variables for the robot movement
 		int intRobotX;
@@ -717,7 +717,7 @@ public class MidtermProject{
 	public static void scene11(Console con){
 		//Defines and loads the images for this scene
 		BufferedImage imgScene11;
-		imgScene11 = con.loadImage("Scene 11.png");
+		imgScene11 = con.loadImage("Scenes/Scene 11.png");
 		
 		//Draws the image for this scene
 		con.drawImage(imgScene11,0,200);
@@ -731,7 +731,7 @@ public class MidtermProject{
 	public static void scene12(Console con){
 		//Defines and loads the images for this scene
 		BufferedImage imgScene12;
-		imgScene12 = con.loadImage("Scene 12.png");
+		imgScene12 = con.loadImage("Scenes/Scene 12.png");
 		
 		//Prints a statement at the top of the screen
 		con.println("Congratulations! Welcome to robotics. You are now a programmer.");
@@ -744,7 +744,7 @@ public class MidtermProject{
 	public static void scene13(Console con){
 		//Defines and loads the images for this scene
 		BufferedImage imgScene13;
-		imgScene13 = con.loadImage("Scene 13.png");
+		imgScene13 = con.loadImage("Scenes/Scene 13.png");
 		
 		//Prints the instructions for this scene
 		con.print("Mr. Fabroa is asking you what your name is\n> ");
@@ -757,7 +757,7 @@ public class MidtermProject{
 	public static void scene14(Console con){
 		//Defines and loads the images for this scene
 		BufferedImage imgScene14;
-		imgScene14 = con.loadImage("Scene 14.png");
+		imgScene14 = con.loadImage("Scenes/Scene 14.png");
 		
 		//Prints the instructions for this scene
 		con.println("Mr. Fabroa wants you to find the wrench in this picture");
@@ -772,7 +772,7 @@ public class MidtermProject{
 	//Method for Scene 16 (Get the gear ratio)
 	public static void scene16(Console con){
 		BufferedImage imgScene16;
-		imgScene16 = con.loadImage("Scene 16.png");
+		imgScene16 = con.loadImage("Scenes/Scene 16.png");
 		con.println("You must enter the correct gear ratio to pass this test");
 		con.print("> ");
 		con.drawImage(imgScene16,0,200);
@@ -833,7 +833,7 @@ public class MidtermProject{
 	public static boolean scene24(Console con,int intMouseX,int intMouseY,int intMouseButtonClicked){
 		//Initializes the image for this scene
 		BufferedImage imgScene24;
-		imgScene24 = con.loadImage("Scene 24.png");
+		imgScene24 = con.loadImage("Scenes/Scene 24.png");
 		
 		//Defines the chances variable for this scene
 		int intChances;
@@ -882,7 +882,7 @@ public class MidtermProject{
 	public static void scene26(Console con){
 		//Defines and loads the images for this scene
 		BufferedImage imgScene26;
-		imgScene26 = con.loadImage("Scene 26.png");
+		imgScene26 = con.loadImage("Scenes/Scene 26.png");
 		
 		//Prints a statement at the top of the screen
 		con.println("Congratulations! Welcome to robotics. You are now communications.");
