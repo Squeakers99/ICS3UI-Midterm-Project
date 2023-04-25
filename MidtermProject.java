@@ -460,6 +460,9 @@ public class MidtermProject{
 		//Draws a dissapointed Fabroa face
 		con.drawImage(imgDissapointedFabroa,0,200);
 		
+		//Repaints the console
+		con.repaint();
+		
 		//Prints a message saying you can do better
 		con.println("Mr. Fabroa is dissapointed in you. You can do better!");
 		
@@ -545,6 +548,9 @@ public class MidtermProject{
 		
 		//Draws the picture for the scene
 		con.drawImage(imgScene1,0,200);
+		
+		//Repaints the console
+		con.repaint();
 	}
 	
 	//Method for Scene 2 (Hope to see you next year)
@@ -556,6 +562,9 @@ public class MidtermProject{
 		//Draws the image and prints the statement
 		con.drawImage(imgScene2,0,200);
 		con.println("We hope to see you next year!");
+		
+		//Repaints the console
+		con.repaint();
 		
 		con.sleep(5000);
 		con.closeConsole();
@@ -590,6 +599,11 @@ public class MidtermProject{
 		
 		//Draws the scene image
 		con.drawImage(imgScene4,0,200);
+		
+		//Repaints the console
+		con.repaint();
+		
+		//Draws the equation
 		con.setDrawColor(Color.black);
 		con.setDrawFont(fntEquationFont);
 		con.drawString(dblRandomNumber1+" * "+dblRandomNumber2+" = ?",500,400);
@@ -612,6 +626,11 @@ public class MidtermProject{
 		
 		//Draws the scene image
 		con.drawImage(imgScene6,0,200);
+		
+		//Repaints the console
+		con.repaint();
+		
+		//Draws the equation font
 		con.setDrawColor(Color.black);
 		con.setDrawFont(fntEquationFont);
 		con.drawString(dblRandomNumber1+" * "+dblRandomNumber2+" = ?",500,400);
@@ -661,6 +680,9 @@ public class MidtermProject{
 		//Draws the background for this scene
 		con.drawImage(imgScene9,0,200);
 		
+		//Repaints the console
+		con.repaint();
+		
 		//Prints the statements for this scene
 		con.println("Since you have coding experience, you can program this robot");
 		con.println("Using the W A S D keys on the keyboard, navigate the robot to the top right of the maze while\navoiding the borders!");
@@ -706,6 +728,8 @@ public class MidtermProject{
 			
 			//Redraws the image
 			con.drawImage(imgRobot,intRobotX,intRobotY);
+			
+			//Repaints the console
 			con.repaint();
 			
 			//Makes the animation 30 fps
@@ -721,6 +745,9 @@ public class MidtermProject{
 		
 		//Draws the image for this scene
 		con.drawImage(imgScene11,0,200);
+		
+		//Repaints the console
+		con.repaint();
 		
 		//Prints the instructions for this scene
 		con.println("Since you are not taking Computer Science, answer this basic coding question to test your coding knowledge");
@@ -770,6 +797,9 @@ public class MidtermProject{
 		
 		//Draws the image for this scene
 		con.drawImage(imgScene14,0,200);
+		
+		//Repaints the console
+		con.repaint();
 	}
 	
 	//Method for Scene 16 (Get the gear ratio)
@@ -785,6 +815,9 @@ public class MidtermProject{
 		
 		//Draws the scene
 		con.drawImage(imgScene16,0,200);
+		
+		//Repaints the console
+		con.repaint();
 	}
 	
 	//Method for Scene 18 (Pick a grade)
@@ -849,6 +882,9 @@ public class MidtermProject{
 		
 		//Draws the background image
 		con.drawImage(imgScene24,0,200);
+		
+		//Repaints the console
+		con.repaint();
 		
 		//Prints the instructions for this scene
 		con.println("To be in communications, you must have an eye for detail");
