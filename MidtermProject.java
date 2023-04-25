@@ -622,7 +622,7 @@ public class MidtermProject{
 		con.print("> ");
 	}
 	
-	//Method for Scene 8 (Choose a subcommitee)
+	//Method for Scene 8 (Choose a course)
 	public static String scene8(Console con,int intMouseX,int intMouseY,int intMouseButtonClicked){
 		//Defines and initializes the choice variable
 		String strChoice;
@@ -738,6 +738,9 @@ public class MidtermProject{
 		
 		//Draws the scene image
 		con.drawImage(imgScene12,0,200);
+		
+		//Repaints the console
+		con.repaint();
 	}
 	
 	//Method for Scene 13 (Input for name)
@@ -771,10 +774,16 @@ public class MidtermProject{
 	
 	//Method for Scene 16 (Get the gear ratio)
 	public static void scene16(Console con){
+		//Loads the images for the scene
 		BufferedImage imgScene16;
 		imgScene16 = con.loadImage("Scenes/Scene 16.png");
-		con.println("You must enter the correct gear ratio to pass this test");
+		
+		//Prints the instructions
+		con.println("You must enter the correct answer to pass this test");
+		con.println("If the gear ratio of the following diagram is x:1, what is x?");
 		con.print("> ");
+		
+		//Draws the scene
 		con.drawImage(imgScene16,0,200);
 	}
 	
@@ -889,5 +898,8 @@ public class MidtermProject{
 		
 		//Draws the scene image
 		con.drawImage(imgScene26,0,200);
+		
+		//Repaints the scene
+		con.repaint();
 	}
 }
